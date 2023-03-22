@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -8,6 +8,7 @@ import tdtuLogo from "../../image/output-onlinepngtools.png";
 import { RegisterRoute } from "../../utils/APIRoutes";
 
 function Register() {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     userName: "",
     email: "",
@@ -64,13 +65,13 @@ function Register() {
     e.preventDefault();
     if (hanleValidation()) {
       const { data } = await axios.post(RegisterRoute, { ...values });
-      console.log("🚀 ~ file: index.js:67 ~ handleSubmit ~ data:", data);
       if (!data.status) {
         toast.error(data.msg);
       } else {
         toast.success(data.msg);
         localStorage.setItem("chat-app-user", JSON.stringify(data.user));
       }
+      navigate("/");
     }
   };
 
