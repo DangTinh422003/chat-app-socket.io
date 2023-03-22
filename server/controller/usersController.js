@@ -30,7 +30,7 @@ module.exports.login = async (req, res, next) => {
   try {
     const { userName, password } = req.body;
     const user = await User.findOne({ userName });
-    console.log("🚀 ~ user:", user)
+    console.log("🚀 ~ user:", user);
     if (!user) {
       return res.json({
         msg: "Tài khoản hoặc mật khẩu không chính xác",
@@ -46,6 +46,24 @@ module.exports.login = async (req, res, next) => {
     }
     delete user.password;
     return res.json({ status: true, user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// SETAVATAR
+module.exports.setavatar = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    const avatarImage = req.body.image;
+    const userData = await User.findByIdAndUpdate(userId, {
+      isAvatarImageSet: true,
+      avatarImage,
+    });
+    return res.json({
+      isSet: userData.isAvatarImageSet,
+      image: userData.avatarImage,
+    });
   } catch (error) {
     next(error);
   }

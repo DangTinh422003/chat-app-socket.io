@@ -63,9 +63,11 @@ function Login() {
     <div className={styles.register}>
       <form>
         <div className={styles.headingForm}>
-          <div className={styles.logo}>
-            <img src={tdtuLogo} alt="" />
-          </div>
+          <Link to="/">
+            <div className={styles.logo}>
+              <img src={tdtuLogo} alt="" />
+            </div>
+          </Link>
           <h1>TDT Login</h1>
         </div>
         <input

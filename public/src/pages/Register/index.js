@@ -83,9 +83,11 @@ function Register() {
     <div className={styles.register}>
       <form>
         <div className={styles.headingForm}>
-          <div className={styles.logo}>
-            <img src={tdtuLogo} alt="" />
-          </div>
+          <Link href="/">
+            <div className={styles.logo}>
+              <img src={tdtuLogo} alt="" />
+            </div>
+          </Link>
           <h1>TDT Register</h1>
         </div>
         <input
