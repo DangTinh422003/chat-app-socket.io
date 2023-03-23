@@ -32,21 +32,24 @@ function SetAvatar() {
   }, [navigate]);
 
   const setProfilePicture = async (e) => {
+    console.log(
+      "🚀 ~ file: index.js:40 ~ setProfilePicture ~ selectedAvatar:",
+      selectedAvatar
+    );
     if (!selectedAvatar) {
       toast.error("Vui lòng chọn hình đại diện!", toastOption);
     } else {
       const user = JSON.parse(localStorage.getItem("chat-app-user"));
-      const data = await axios.post(`${SetAvatarRoute}/${user._id}`, {
+      const { data } = await axios.post(`${SetAvatarRoute}/${user._id}`, {
         image: avatars[selectedAvatar],
       });
 
       if (data.isSet) {
+        console.log(data);
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
         localStorage.setItem("chat-app-user", JSON.stringify(user));
         navigate("/");
-      } else {
-        toast.error("Có lỗi xảy ra, vui lòng thử lại!", toastOption);
       }
     }
   };
@@ -64,8 +67,10 @@ function SetAvatar() {
       setAvatars(data);
       setIsLoading(false);
     };
-    fetchAvatars();
-  }, []);
+    if (isLoading) {
+      fetchAvatars();
+    }
+  }, [isLoading]);
 
   return (
     <div className={styles.SetAvatar}>

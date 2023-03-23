@@ -71,7 +71,7 @@ function Register() {
         toast.success(data.msg);
         localStorage.setItem("chat-app-user", JSON.stringify(data.user));
       }
-      navigate("/");
+      navigate("/setavatar");
     }
   };
 

@@ -1,0 +1,21 @@
+.chat {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  background: #131224;
+  .container {
+    height: 85vh;
+    width: 85vw;
+    background: #0b0914;
+    display: grid;
+    grid-template: 25% 75%;
+    @media screen and (min-width: 720px) and (max-width: 1080px) {
+      grid-template: 35% 65%;
+      
+    }
+  }
+}
