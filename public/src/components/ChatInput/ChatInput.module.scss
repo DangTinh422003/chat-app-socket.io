@@ -1,0 +1,47 @@
+.container {
+  position: absolute;
+  bottom: 0;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  .buttonContainer {
+    .emoji {
+      font-size: 30px;
+      color: gold;
+      margin-right: 20px;
+      cursor: pointer;
+      aside {
+        position: absolute;
+        bottom: 80px;
+        left: 0;
+      }
+    }
+  }
+  .inputContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    input {
+      width: 85%;
+      padding: 10px 20px;
+      outline: none;
+      border: none;
+      background: #2b2838;
+      color: #fff;
+      border-radius: 20px;
+    }
+    button {
+      height: 100%;
+      margin-left: 20px;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+      background: #9980e7;
+      border-radius: 4px;
+      color: #fff;
+      padding: 10px;
+    }
+  }
+}

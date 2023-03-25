@@ -1,0 +1,10 @@
+.emoji .epr-header {
+  display: none;
+}
+.epr-emoji-category-label {
+  font-size: 16px;
+}
+.EmojiPickerReact {
+  height: 300px;
+  width: 260px;
+}

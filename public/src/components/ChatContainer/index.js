@@ -1,8 +1,14 @@
 import styles from "./ChatContainer.module.scss";
 import avt from "../../image/avt.jpg";
 import Logout from "../Logout";
+import ChatInput from "../ChatInput";
+import Messages from "../Messages";
 
 function ChatContainer({ currentChat }) {
+  const handleSendMsg = async (msg) => {
+    alert(msg);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.chatHeader}>
@@ -21,8 +27,8 @@ function ChatContainer({ currentChat }) {
       </div>
 
       {/* chat */}
-      <div className={styles.chatMessenger}></div>
-      <div className={styles.chatInput}></div>
+      <Messages />
+      <ChatInput handleSendMsg={handleSendMsg} />
     </div>
   );
 }

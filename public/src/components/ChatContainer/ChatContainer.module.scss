@@ -1,16 +1,17 @@
 .container {
+  position: relative;
   color: #fff;
   flex: 1;
-  padding-top: 20px;
   .chatHeader {
+    background: #2b2838;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 10px 40px;
     ul {
       display: flex;
       align-items: center;
-      gap : 20px;
+      gap: 20px;
       & * {
         list-style-type: none;
       }
