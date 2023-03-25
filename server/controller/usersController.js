@@ -68,3 +68,17 @@ module.exports.setavatar = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.getAllusers = async (req, res, next) => {
+  try {
+    const users = await User.find({ _id: {$ne :req.params.id} }).select([
+      "_id",
+      "email",
+      "userName",
+    ]);
+    console.log("🚀 ~ file: usersController.js:79 ~ module.exports.getAllusers= ~ users:", users)
+    return res.json({ users });
+  } catch (error) {
+    next(error);
+  }
+};

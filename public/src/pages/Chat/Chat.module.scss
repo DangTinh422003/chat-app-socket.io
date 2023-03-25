@@ -7,15 +7,11 @@
   gap: 1rem;
   align-items: center;
   background: #131224;
+  // overflow: hidden;
   .container {
     height: 85vh;
     width: 85vw;
     background: #0b0914;
-    display: grid;
-    grid-template: 25% 75%;
-    @media screen and (min-width: 720px) and (max-width: 1080px) {
-      grid-template: 35% 65%;
-      
-    }
+    display: flex;
   }
 }
