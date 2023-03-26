@@ -88,7 +88,7 @@ function Register() {
               <img src={tdtuLogo} alt="" />
             </div>
           </Link>
-          <h1>TDT Register</h1>
+          <h1>Register</h1>
         </div>
         <input
           require="true"

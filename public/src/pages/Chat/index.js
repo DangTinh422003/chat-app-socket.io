@@ -47,7 +47,10 @@ function Chat() {
         {isLoaded && !currentChat ? (
           <Welcome currentUser={currentUser}></Welcome>
         ) : (
-          <ChatContainer currentChat={currentChat}></ChatContainer>
+          <ChatContainer
+            currentChat={currentChat}
+            currentUser={currentUser}
+          ></ChatContainer>
         )}
       </div>
     </div>

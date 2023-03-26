@@ -1,6 +1,6 @@
 import styles from "./ChatInput.module.scss";
 import "./ChatInput.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Picker from "emoji-picker-react";
 import { IoMdSend } from "react-icons/io";
 import { BsEmojiSmileFill } from "react-icons/bs";
@@ -8,6 +8,7 @@ import { BsEmojiSmileFill } from "react-icons/bs";
 function ChatInput({ handleSendMsg }) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [msg, setMsg] = useState("");
+  const inputRef = useRef();
 
   const handleEmojiPickerHideShow = () => {
     setShowEmojiPicker(!showEmojiPicker);
@@ -22,6 +23,7 @@ function ChatInput({ handleSendMsg }) {
   };
 
   const handleEmojiClick = (emoji, event) => {
+    inputRef.current.focus();
     let message = msg;
     message += emoji.emoji;
     setMsg(message);
@@ -51,6 +53,7 @@ function ChatInput({ handleSendMsg }) {
         }}
       >
         <input
+          ref={inputRef}
           type="text"
           placeholder="Nhập ở đây..."
           value={msg}

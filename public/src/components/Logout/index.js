@@ -1,5 +1,4 @@
 import styles from "./Logout.module.scss";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BiPowerOff } from "react-icons/bi";
 
@@ -11,6 +10,7 @@ function Logout() {
   };
   return (
     <button className={styles.button} onClick={handleClick}>
+      Đăng xuất
       <BiPowerOff></BiPowerOff>
     </button>
   );

@@ -68,7 +68,7 @@ function Login() {
               <img src={tdtuLogo} alt="" />
             </div>
           </Link>
-          <h1>TDT Login</h1>
+          <h1>Login</h1>
         </div>
         <input
           require="true"
