@@ -6,16 +6,52 @@ import axios from "axios";
 import styles from "./ChatContainer.module.scss";
 import { sendMessageRoute, getAllMessageRoute } from "../../utils/APIRoutes";
 
-function ChatContainer({ currentChat, currentUser }) {
+function ChatContainer({ currentChat, currentUser, socket }) {
+  const [messages, setMessenges] = useState({ projectMessages: null });
+
   const handleSendMsg = async (msg) => {
     await axios.post(sendMessageRoute, {
       from: currentUser._id,
       to: currentChat._id,
       message: msg,
     });
+    socket.current.emit("send-msg", {
+      to: currentChat._id,
+      from: currentUser._id,
+      message: msg,
+    });
+    const msgs = [...messages.projectMessages];
+    msgs.push({
+      fromSelf: true,
+      message: msg,
+    });
+    const newMessages = { ...messages };
+    newMessages.projectMessages = msgs;
+    setMessenges(newMessages);
   };
 
-  const [messages, setMessenges] = useState([]);
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.on("msg-recieve", (data) => {
+        console.log("🚀 ~ file: index.js:36 ~ socket.current.on ~ data:", data);
+        if (data.from === currentChat._id) {
+          const msgs = [].concat(messages.projectMessages);
+          console.log(
+            "🚀 ~ file: index.js:39 ~ socket.current.on ~ msgs:",
+            msgs
+          );
+          msgs.push({
+            fromSelf: false,
+            message: data.message,
+          });
+          const newMessages = { ...messages };
+          newMessages.projectMessages = msgs;
+          setMessenges(newMessages);
+        }
+      });
+    }
+  }, [currentChat, messages, socket]);
+
   useEffect(() => {
     const fetchChatData = async () => {
       if (currentChat && currentUser) {
@@ -48,7 +84,7 @@ function ChatContainer({ currentChat, currentUser }) {
 
       {/* chat */}
       <div className={styles.chatContainer}>
-        {messages.projectMessages?.map((item, index) => {
+        {messages?.projectMessages?.map((item, index) => {
           return (
             <div
               key={index}

@@ -1,7 +1,6 @@
 import styles from "./Welcome.module.scss";
 import robot from "../../image/robot.gif";
 function Welcome({ currentUser }) {
-  console.log("🚀 ~ file: index.js:4 ~ Welcome ~ currentUser:", currentUser);
   return (
     <div className={styles.container}>
       <img src={robot} alt="robot" />
