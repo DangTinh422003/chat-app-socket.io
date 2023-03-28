@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 module.exports.register = async (req, res, next) => {
   try {
     const { userName, email, password } = req.body;
-    console.log(req.body);
     const userNameCheck = await User.findOne({ userName });
     if (userNameCheck)
       return res.json({ msg: "Tên tài khoản đã tồn tại", status: false });
