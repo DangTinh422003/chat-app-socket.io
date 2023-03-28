@@ -1,11 +1,12 @@
 .container {
   position: absolute;
   bottom: 0;
-  height: 10%;
+  height: 12%;
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 40px;
+  padding: 10px 40px;
+  background: #2B2838;
   .buttonContainer {
     .emoji {
       font-size: 30px;
@@ -28,8 +29,8 @@
       padding: 10px 20px;
       outline: none;
       border: none;
-      background: #2b2838;
-      color: #fff;
+      background: #ccc;
+      color: black;
       border-radius: 20px;
     }
     button {

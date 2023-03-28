@@ -8,7 +8,6 @@ import { sendMessageRoute, getAllMessageRoute } from "../../utils/APIRoutes";
 
 function ChatContainer({ currentChat, currentUser, socket }) {
   const [messages, setMessenges] = useState({ projectMessages: null });
-
   const handleSendMsg = async (msg) => {
     await axios.post(sendMessageRoute, {
       from: currentUser._id,
@@ -33,13 +32,8 @@ function ChatContainer({ currentChat, currentUser, socket }) {
   useEffect(() => {
     if (socket.current) {
       socket.current.on("msg-recieve", (data) => {
-        console.log("🚀 ~ file: index.js:36 ~ socket.current.on ~ data:", data);
         if (data.from === currentChat._id) {
           const msgs = [].concat(messages.projectMessages);
-          console.log(
-            "🚀 ~ file: index.js:39 ~ socket.current.on ~ msgs:",
-            msgs
-          );
           msgs.push({
             fromSelf: false,
             message: data.message,

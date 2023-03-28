@@ -2,6 +2,8 @@
   position: relative;
   color: #fff;
   flex: 1;
+  background: #ccc;
+
   .chatHeader {
     background: #2b2838;
     display: flex;
@@ -11,7 +13,7 @@
     ul {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 6px;
       & * {
         list-style-type: none;
       }
@@ -35,12 +37,16 @@
     }
   }
   .chatContainer {
+    max-height: 474px;
     padding: 20px;
     color: #fff;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     overflow: auto;
+    gap: 6px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     .message {
       display: flex;
       align-items: center;
