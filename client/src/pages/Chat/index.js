@@ -1,6 +1,6 @@
 import styles from "./Chat.module.scss";
 import axios from "axios";
-import { useEffect, useState, useRef, createContext } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AllUsersRoute, host } from "../../utils/APIRoutes";
 import Contact from "../../components/Contact";

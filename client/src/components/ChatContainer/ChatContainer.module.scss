@@ -51,13 +51,14 @@
       display: flex;
       align-items: center;
       width: 100%;
+      overflow-wrap: break-word;
       .content {
         max-width: 40%;
         display: flex;
-        overflow-wrap: break-word;
         padding: 10px 20px;
         font-size: 16px;
         border-radius: 12px;
+        word-break: break-all;
       }
     }
     .sended {
