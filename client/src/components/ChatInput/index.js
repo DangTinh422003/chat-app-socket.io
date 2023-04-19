@@ -5,7 +5,7 @@ import Picker from "emoji-picker-react";
 import { IoMdSend } from "react-icons/io";
 import { BsEmojiSmileFill } from "react-icons/bs";
 
-function ChatInput({ handleSendMsg }) {
+function ChatInput({ handleSendMsg, chatContainerRef }) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [msg, setMsg] = useState("");
   const inputRef = useRef();
@@ -20,6 +20,10 @@ function ChatInput({ handleSendMsg }) {
       handleSendMsg(msg);
       setMsg("");
     }
+    chatContainerRef?.current.scrollTo(
+      0,
+      chatContainerRef?.current.scrollHeight + 100
+    );
   };
 
   const handleEmojiClick = (emoji, event) => {

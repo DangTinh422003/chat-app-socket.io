@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ChatInput from "../ChatInput";
 import Logout from "../Logout";
 import avt from "../../image/avt.jpg";
@@ -7,6 +7,7 @@ import styles from "./ChatContainer.module.scss";
 import { sendMessageRoute, getAllMessageRoute } from "../../utils/APIRoutes";
 
 function ChatContainer({ currentChat, currentUser, socket }) {
+  const chatContainerRef = useRef();
   const [messages, setMessenges] = useState({ projectMessages: null });
   const handleSendMsg = async (msg) => {
     await axios.post(sendMessageRoute, {
@@ -77,7 +78,7 @@ function ChatContainer({ currentChat, currentUser, socket }) {
       </div>
 
       {/* chat */}
-      <div className={styles.chatContainer}>
+      <div className={styles.chatContainer} ref={chatContainerRef}>
         {messages?.projectMessages?.map((item, index) => {
           return (
             <div
@@ -93,7 +94,10 @@ function ChatContainer({ currentChat, currentUser, socket }) {
           );
         })}
       </div>
-      <ChatInput handleSendMsg={handleSendMsg} />
+      <ChatInput
+        chatContainerRef={chatContainerRef}
+        handleSendMsg={handleSendMsg}
+      />
     </div>
   );
 }

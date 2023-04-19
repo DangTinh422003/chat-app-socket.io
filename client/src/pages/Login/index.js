@@ -44,7 +44,6 @@ function Login() {
     e.preventDefault();
     if (hanleValidation()) {
       const { data } = await axios.post(LoginRoute, { ...values });
-      console.log("🚀 ~ file: index.js:47 ~ handleSubmit ~ data:", data)
       if (!data.status) {
         toast.error(data.msg);
       } else {
@@ -89,7 +88,9 @@ function Login() {
         <p className={styles.desc}>
           Nếu chưa có tài khoản
           <Link className={styles.link} to="/register">
-            {" "}đăng kí{" "}
+            {" "}
+            đăng kí
+            {" "}
           </Link>
           tại đây!
         </p>

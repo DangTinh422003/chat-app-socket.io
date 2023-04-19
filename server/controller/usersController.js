@@ -29,7 +29,6 @@ module.exports.login = async (req, res, next) => {
   try {
     const { userName, password } = req.body;
     const user = await User.findOne({ userName });
-    console.log("🚀 ~ user:", user);
     if (!user) {
       return res.json({
         msg: "Tài khoản hoặc mật khẩu không chính xác",
@@ -75,7 +74,6 @@ module.exports.getAllusers = async (req, res, next) => {
       "email",
       "userName",
     ]);
-    console.log("🚀 ~ file: usersController.js:79 ~ module.exports.getAllusers= ~ users:", users)
     return res.json({ users });
   } catch (error) {
     next(error);
