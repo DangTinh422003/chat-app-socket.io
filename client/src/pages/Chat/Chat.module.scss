@@ -9,9 +9,11 @@
   background: #131224;
   overflow: hidden;
   .container {
+    border-radius: 12px;
+    overflow: hidden;
     height: 85vh;
     width: 85vw;
-    background: #0b0914;
+    background: #221d39;
     display: flex;
   }
 }

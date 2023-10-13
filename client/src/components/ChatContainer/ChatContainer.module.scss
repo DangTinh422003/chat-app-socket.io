@@ -2,7 +2,7 @@
   position: relative;
   color: #fff;
   flex: 1;
-  background: #ccc;
+  padding-bottom: 70px;
 
   .chatHeader {
     background: #2b2838;
@@ -37,14 +37,15 @@
     }
   }
   .chatContainer {
-    max-height: 474px;
-    height: 474px;
-    padding: 20px;
-    color: #fff;
+    height: 100%;
+    padding: 0 20px;
+    padding-bottom: 70px;
     display: flex;
     flex-direction: column;
+    color: #fff;
     overflow: auto;
-    gap: 6px;
+    background: url("http://localhost:3000/backgroundChatContainer.webp");
+    background-size: cover;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -52,6 +53,7 @@
       display: flex;
       align-items: center;
       width: 100%;
+      margin-bottom: 10px;
       overflow-wrap: break-word;
       .content {
         max-width: 40%;

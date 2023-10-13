@@ -6,7 +6,7 @@ import avt from "../../image/avt.jpg";
 function Contact({ contacts, currentUser, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState("");
   const [currentSelected, setCurrentSelected] = useState();
-  
+
   useEffect(() => {
     if (currentUser) {
       setCurrentUserName(currentUser.userName);
